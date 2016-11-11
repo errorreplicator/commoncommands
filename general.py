@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-# output longer width 
+# output longer width of the colsole
 
 desired_width = 320
 pd.set_option('display.width', desired_width)
