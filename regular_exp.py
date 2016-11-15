@@ -29,7 +29,11 @@ print(ds.ix[ds.fir.str.match(r'\d[a-z]') | ds.sec.str.match(r'[a-z]') ])
 # list down all columns where string match 1st is digit than two letters
 print(ds.ix[ds.fir.str.match(r'\d[a-z]{2}')])
 
+# Drops rows with ?
+ds.drop(ds[ds.x5.str.contains(r'[?]')].index,0,inplace=True)
+
 # print(ds)
+
 
 # print(ds.loc[:,'4th':'5th'][ds['4th'] == 4])
 # print(ds[pd.isnull(ds).any(axis=1)])
