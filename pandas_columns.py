@@ -15,6 +15,12 @@ print(ds.loc[1:4,'2nd':])
 # reads csv and providing names of the columns
 ds = pd.read_csv('census.dat',names=['education', 'age', 'capital-gain', 'race', 'capital-loss', 'hours-per-week', 'sex', 'classification'])
 
+#read csv ignoring spaces in columns
+ds = pd.read_csv('census.dat', skipinitialspace=True)
+
+#stripe out spaces in the x2 column
+ds['x2'] = pd.core.strings.str_strip(ds['x2'])
+
 # ??????????
 print(ds['capital-gain'][ds['capital-gain'] == '?'])
 
@@ -22,3 +28,6 @@ print(ds['capital-gain'][ds['capital-gain'] == '?'])
 ds.fir = pd.to_numeric(ds.fir)
 ##ds['rc'] = ds['rc'].astype(np.float64)
 ##ds['wc'] = ds['wc'].astype(np.int64)
+
+# print types of columns
+print(ds.dtypes)
