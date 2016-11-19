@@ -13,3 +13,6 @@ sampl = np.random.uniform(low=1,high=130,size=40)
 
 # Random Ints
 sampl = np.random.random_integers(low=1,high=130,size=30)
+
+#index of integers from 0 to len(samp) or this can be ranve(any_number_in_here) range(100)
+ids = [x for x in range(len(sampl))]
