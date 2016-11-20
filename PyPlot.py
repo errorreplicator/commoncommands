@@ -28,13 +28,31 @@ plt.plot (X,Y)
 plt.plot(X,Y, label='1st line')
 plt.plot(x2,y2, label = '2nd line')
 
+#Bar chart
+plt.bar(X,Y,color='g')
+plt.bar(x2,y2,color='c')
+
+#Scatter chart
+plt.scatter(eage,ids,color='b',marker='*',s=30)
+plt.scatter(eage2,ids,color='r',marker='+',s=50)
+
+#Stack Plot
+days = [1,2,3,4,5,6,7]
+sleeping = [7,6,7,8,5,9,10]
+eating = [2,3,1,1,2,2,3]
+playing = [7,6,9,9,7,12,11]
+working = [8,9,7,9,10,1,0]
+plt.stackplot(days,sleeping,eating,playing,working,colors=['y','g','b','c'])
+
+# Pie chart
+slices = [4,5,1,11]
+act = ['act1','act2','act3','act4']
+plt.pie(slices,labels=act,colors=['c','m','w','y'])
+
 #labels
 plt.ylabel('Label Y')
 plt.xlabel('Label X')
 
-#Bar chart
-plt.bar(X,Y,color='g')
-plt.bar(x2,y2,color='c')
 
 plt.title('Title of the chart\nSecond line')
 plt.legend()
