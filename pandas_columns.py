@@ -23,7 +23,10 @@ ds['x2'] = pd.core.strings.str_strip(ds['x2'])
 
 # ??????????
 print(ds['capital-gain'][ds['capital-gain'] == '?'])
+print football[(football.wins > 10) & (football.team == "Packers")]
 
+#prints out 5th column for only the rows where in fir = 0.9
+print(ds['5th'][ds['fir']  == 0.9])
 #converts column fir to number
 ds.fir = pd.to_numeric(ds.fir)
 ##ds['rc'] = ds['rc'].astype(np.float64)
