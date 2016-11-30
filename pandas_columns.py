@@ -23,7 +23,8 @@ ds['x2'] = pd.core.strings.str_strip(ds['x2'])
 
 # ??????????
 print(ds['capital-gain'][ds['capital-gain'] == '?'])
-print football[(football.wins > 10) & (football.team == "Packers")]
+print football[(football.wins > 10) and (football.team == "Packers")]
+
 
 #prints out 5th column for only the rows where in fir = 0.9
 print(ds['5th'][ds['fir']  == 0.9])
@@ -34,3 +35,26 @@ ds.fir = pd.to_numeric(ds.fir)
 
 # print types of columns
 print(ds.dtypes)
+
+
+# creating column base on values in different column
+#simple example
+ds_train['Gender'] = ds_train['Sex'].map({'male': 0, 'female':1}).astype(np.int)
+#more advance example
+def realF (a):
+    if (a['Sex'] == 'female' or a['Pclass'] == 3 or a['Age'] < 18):
+        return 1
+    else:
+        return 0
+
+ds_titan['SurvivalRate'] = ds_titan.apply(realF,axis=1)
+
+#group by
+for i in range(1,4):
+    print (i, len(ds_train[ (ds_train['Sex'] == 'male') & (ds_train['Pclass'] == i) ]))
+
+# simple mean of one column
+print(ds_train['Survived'].mean())
+# advanced filtering
+print(ds_train[(ds_train['Survived'] == 1) & ((ds_train['Sex'] != 'male') | (ds_train['Sex'] == 'male' ))])
+print(ds_train.loc[ds_train['Age'].isnull(),['Name','Sex','Age']])
