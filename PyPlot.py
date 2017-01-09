@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-
+import matplotlib
 Y = [3, 4, 5, 3, 4]
 X = [2, 3, 5, 7, 9]
 x2 = [1,2,3,4,5]
@@ -8,14 +8,25 @@ y2 = [1,8,10,12,8]
 
 # random 50 int numbers from 5 to 100
 eage = np.random.random_integers(low=5,high=100,size=50)
+eage2 = np.random.random_integers(low=5,high=50,size=50)
 
 #index of integers from 0 to len(eage) or this can be ranve(any_number_in_here) range(100)
 ids = [x for x in range(len(eage))]
 
-#buckets needed for histogram chart
-#histogram of type chart
-buckets = [0,10,20,30,40,50,60,70,80,90,100]
-plt.hist(eage,buckets,histtype='bar')
+# ----------------------------------------------plot set up ------------------------------------------------------------
+
+# Plot size to 14" x 7"
+matplotlib.rc('figure', figsize = (14, 7))
+# Font size to 14
+matplotlib.rc('font', size = 14)
+# Do not display top and right frame lines
+matplotlib.rc('axes.spines', top = False, right = False)
+# Remove grid lines
+matplotlib.rc('axes', grid = False)
+# Set backgound color to white
+matplotlib.rc('axes', facecolor = 'white')
+
+# ----------------------------------------------------------------------------------------------------------------------
 
 
 # simple one array [y_true] value plot - plt takes one array and concider it as Y while generating X auto. starting from zero
@@ -32,9 +43,23 @@ plt.plot(x2,y2, label = '2nd line')
 plt.bar(X,Y,color='g')
 plt.bar(x2,y2,color='c')
 
-#Scatter chart
+#---------------------------------------------histogram of type chart--------------------------------------------------#
+buckets = [0,10,20,30,40,50,60,70,80,90,100] #buckets needed for histogram chart
+plt.hist(eage) #simplest
+
+plt.hist(eage,buckets,histtype='bar') #one data set
+
+plt.hist(eage,buckets,histtype='bar',color = '#539caf',alpha=1) #two data sets
+plt.hist(eage2,buckets,histtype='bar',color = '#7663b0',alpha=0.75)
+
+# ----------------------------------------------------------------------------------------------------------------------
+#-------------------------------------------#Scatter chart -------------------------------------------------------------
+
 plt.scatter(eage,ids,color='b',marker='*',s=30)
 plt.scatter(eage2,ids,color='r',marker='+',s=50)
+
+# ----------------------------------------------------------------------------------------------------------------------
+
 
 #Stack Plot
 days = [1,2,3,4,5,6,7]

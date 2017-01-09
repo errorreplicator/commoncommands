@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 # generate random dataset
 ds = pd.DataFrame(np.random.choice([0.9,4.1,'2ta',np.nan], size=(10,5)),columns=['fir','sec','thir','4th','5th'])
@@ -22,8 +23,8 @@ ds = pd.read_csv('census.dat', skipinitialspace=True)
 ds['x2'] = pd.core.strings.str_strip(ds['x2'])
 
 # ??????????
-print(ds['capital-gain'][ds['capital-gain'] == '?'])
-print football[(football.wins > 10) and (football.team == "Packers")]
+# print(ds['capital-gain'][ds['capital-gain'] == '?'])
+# print football[(football.wins > 10) and (football.team == "Packers")]
 
 
 #prints out 5th column for only the rows where in fir = 0.9
@@ -39,7 +40,7 @@ print(ds.dtypes)
 
 # creating column base on values in different column
 #simple example
-ds_train['Gender'] = ds_train['Sex'].map({'male': 0, 'female':1}).astype(np.int)
+ds['Gender'] = ds['Sex'].map({'male': 0, 'female':1}).astype(np.int)
 #more advance example
 def realF (a):
     if (a['Sex'] == 'female' or a['Pclass'] == 3 or a['Age'] < 18):
@@ -58,3 +59,7 @@ print(ds_train['Survived'].mean())
 # advanced filtering
 print(ds_train[(ds_train['Survived'] == 1) & ((ds_train['Sex'] != 'male') | (ds_train['Sex'] == 'male' ))])
 print(ds_train.loc[ds_train['Age'].isnull(),['Name','Sex','Age']])
+
+# Display only objects
+print(ds.dtypes[ds.dtypes.map(lambda x: x=='object')])
+
