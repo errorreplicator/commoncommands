@@ -63,3 +63,10 @@ print(ds_train.loc[ds_train['Age'].isnull(),['Name','Sex','Age']])
 # Display only objects
 print(ds.dtypes[ds.dtypes.map(lambda x: x=='object')])
 
+# Count the number of NaNs each column has.
+print("\n*** NaNs per column:")
+print(pd.isnull(train).sum())
+
+#List all values in column and cound occurences
+
+print(pd.value_counts(full["CabinType"]))
