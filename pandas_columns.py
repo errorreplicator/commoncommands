@@ -70,3 +70,12 @@ print(pd.isnull(train).sum())
 #List all values in column and cound occurences
 
 print(pd.value_counts(full["CabinType"]))
+
+# ----------------Filtering and applying the data -------------------
+
+def change_zero_age(column): #chaning all passed values to 1
+    return 1
+
+train.loc[(train['Age']<0.999),'Age'] = train.loc[(train['Age']<0.999),'Age'].apply(change_zero_age) #<-- error working on a copy
+
+train['Age'][train['Age']<0.999] = train['Age'][train['Age']<0.999].apply(change_zero_age) # <-- correct
