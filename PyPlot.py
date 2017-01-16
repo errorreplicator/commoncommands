@@ -42,7 +42,10 @@ plt.plot(x2,y2, label = '2nd line')
 #Bar chart
 plt.bar(X,Y,color='g')
 plt.bar(x2,y2,color='c')
-
+# --------------------------------------------Vertical bar chart -------------------------------------------------------
+test_ds['Total'].plot(kind='barh',alpha=1,color='y')
+test_ds['survived'].plot(kind='barh',alpha=0.5)
+print(test_ds)
 #---------------------------------------------histogram of type chart--------------------------------------------------#
 buckets = [0,10,20,30,40,50,60,70,80,90,100] #buckets needed for histogram chart
 plt.hist(eage) #simplest
