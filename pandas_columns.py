@@ -3,12 +3,46 @@ import numpy as np
 
 # generate random dataset
 ds = pd.DataFrame(np.random.choice([0.9,4.1,'2ta',np.nan], size=(10,5)),columns=['fir','sec','thir','4th','5th'])
-
+ds =  np.zeros((3,3))
+ds = np.ones((3,3))
+ds =  np.eye(3)
 # renaming columns
 ds.rename(columns={'col1':'First','col2':'2nd','col3':'3rd','Unnamed: 4':'4th'}, inplace=True)
 
 # dropping column
 ds.drop('Unnamed: 0',1,inplace=True)
+# -------------------------------RANGE -----------------------------------------------------
+
+     val1  val2 val3
+n
+100    10    10    C
+101    10    20    C
+102    10    30    B
+103    10    40    B
+104    10    50    A
+
+In: dataset['val3'][104]
+Out: 'A'
+In: dataset.loc[104, 'val3']
+Out: 'A'
+In: dataset.ix[104, 'val3']
+Out: 'A'
+In: dataset.ix[104, 2]
+Out: 'A'
+In: dataset.iloc[4, 2]
+Out: 'A'
+
+
+In: dataset[['val3', 'val2']][0:2]
+In: dataset.loc[range(100, 102), ['val3', 'val2']]
+In: dataset.ix[range(100, 102), ['val3', 'val2']]
+In: dataset.ix[range(100, 102), [2, 1]]
+In: dataset.iloc[range(2), [2,1]]
+Out:
+  val3  val2
+n
+100  C  10
+101  C  20
 
 #print row 1to 4  of columns starting from name '2nd' to end of column list
 print(ds.loc[1:4,'2nd':])
