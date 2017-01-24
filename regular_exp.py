@@ -32,7 +32,8 @@ print(ds.ix[ds.fir.str.match(r'\d[a-z]{2}')])
 # Drops rows with ?
 ds.drop(ds[ds.x5.str.contains(r'[?]')].index,0,inplace=True)
 
-# print(ds)
+# first char is B than numbers
+testdata = full.ix[full.Cabin.str.match(r'[B][0-9]') & (full['Sex'] == 'female')]
 
 
 # print(ds.loc[:,'4th':'5th'][ds['4th'] == 4])

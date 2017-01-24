@@ -113,3 +113,7 @@ def change_zero_age(column): #chaning all passed values to 1
 train.loc[(train['Age']<0.999),'Age'] = train.loc[(train['Age']<0.999),'Age'].apply(change_zero_age) #<-- error working on a copy
 
 train['Age'][train['Age']<0.999] = train['Age'][train['Age']<0.999].apply(change_zero_age) # <-- correct
+
+# ----------------------------CATEGORICAL VALUES ------------------------
+full['EmbarkedT'] = pd.Categorical(full['Embarked'], categories=[]).codes #914 2
+full2 = pd.get_dummies(full['Embarked'])

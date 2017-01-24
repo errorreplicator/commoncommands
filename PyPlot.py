@@ -1,6 +1,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib
+
+matplotlib.style.use('ggplot')
+
 Y = [3, 4, 5, 3, 4]
 X = [2, 3, 5, 7, 9]
 x2 = [1,2,3,4,5]
