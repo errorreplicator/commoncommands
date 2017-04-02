@@ -11,6 +11,11 @@ ds.rename(columns={'col1':'First','col2':'2nd','col3':'3rd','Unnamed: 4':'4th'},
 
 # dropping column
 ds.drop('Unnamed: 0',1,inplace=True)
+
+# set value
+
+full.set_value([61,829],'Embarked','S')
+
 # -------------------------------RANGE -----------------------------------------------------
 
      val1  val2 val3
@@ -117,3 +122,9 @@ train['Age'][train['Age']<0.999] = train['Age'][train['Age']<0.999].apply(change
 # ----------------------------CATEGORICAL VALUES ------------------------
 full['EmbarkedT'] = pd.Categorical(full['Embarked'], categories=[]).codes #914 2
 full2 = pd.get_dummies(full['Embarked'])
+
+#reset index
+full.reset_index(inplace=True) ############# REINDEX
+
+#concatenate
+full = pd.concat([train,test],axis=0)
