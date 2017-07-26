@@ -4,6 +4,7 @@ import numpy as np
 
 desired_width = 320
 pd.set_option('display.width', desired_width)
+pd.set_option('display.max_colwidth', -1)
 
 #pickle
 clf = sl.LinearRegression()
@@ -22,3 +23,12 @@ sampl = np.random.random_integers(low=1,high=130,size=30)
 
 #index of integers from 0 to len(samp) or this can be range(any_number_in_here) range(100)
 ids = [x for x in range(len(sampl))]
+
+# ----------------TIMING ----------------------------------
+
+import time
+start_time = time.time()
+
+print ("time elapsed: {:.2f}s".format(time.time() - start_time))
+
+# ------------------------------------------------------------

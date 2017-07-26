@@ -40,13 +40,26 @@ sess = tf.InteractiveSession()
 
 init = tf.global_variables_initializer() #init all variables
 # sess.run(init)
-print(sess.run(y,feed_dict={x: x_values}))
+# print(sess.run(y,feed_dict={x: x_values}))
 # print(x.eval())
 
 
 # sess = tf.Session()
 first_var = tf.Variable(tf.zeros([2,3]))
-print(sess.run(first_var.initializer))
+# print(sess.run(first_var.initializer))
 second_var = tf.Variable(tf.zeros_like(first_var))
 # Depends on first_var
-sess.run(second_var.initializer)
+# sess.run(second_var.initializer)
+
+identity_matrix = tf.diag([1.0, 1.0, 1.0])
+A = tf.truncated_normal([2, 3])
+B = tf.fill([2,3], 5.0)
+C = tf.random_uniform([3,2])
+D = tf.convert_to_tensor(np.array([[1., 2., 3.],[-3., -7., -1.],[0., 5., -2.]]))
+# print(sess.run(identity_matrix))
+# print(sess.run(A))
+# print(sess.run(B))
+# print(sess.run(C))
+print(sess.run(D))
+print(sess.run(tf.transpose(D)))
+print(sess.run(tf.matrix_inverse(D)))
