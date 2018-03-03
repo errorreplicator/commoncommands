@@ -51,6 +51,7 @@ testdata = full.ix[full.Cabin.str.match(r'[B][0-9]') & (full['Sex'] == 'female')
 # . anything but a new line
 # \b - space followed by word
 # ? - 0 or 1 repetition
+# + - 1 more than 1 repetition
 # * - 0 to multi repetitions
 # {3} - three occurrences in a row
 # \d{1,5} - 1 to 5 digits in a row
